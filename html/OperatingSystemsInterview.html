@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSP Tech</title>
+    <link rel="icon" href="{% static 'msplogo.png'%}">
+    <link rel="stylesheet" href="{% static 'interview.css' %}">
+    <script src="{% static 'interview.js' %}"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="item">
+            <div class="question">
+                <span>What is operating system?</span>
+            </div>
+            <div class="answer">
+                <span>It is a program that acts as an Intermediary between the user and the computer
+                hardware.</span>
+                <span><strong>Purpose :</strong></span>
+                <ul>
+                    <li>It provide convenient environment in which user can execute programs in
+                    efficient manner.</li>
+                    <li> It is a resource allocator responsible for allocating system resources.</li>
+                    <li> It control program which controls the operation of computer hardware.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What are the components of computer system?</span>
+            </div>
+            <div class="answer">
+                <span>Hardware,Os,Application programs,the users.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What are the types of operating system?</span>
+            </div>
+            <div class="answer">
+                <span><strong>Batched operating systems :</strong> The user of batch operating system never directly
+                interacts with the computer.</span>
+                <span><strong>Time_sharing Operating Systems :</strong> It enables people located at different
+                terminal to use a single computer system at the same time.</span>
+                <span>
+                    <span><strong>Real time OS :</strong> Time interval to process and responds to input is very small.</span>
+                    <span>Ex : Space software and military software</span>
+                </span>
+                <span><strong>Distributed OS :</strong> It uses many processors located in different machines to
+                provide very fast computations.</span>
+                <span><strong>Multiprogramming OS :</strong> OS keeps several jobs in memory at a time-sharing the
+                processor,when two or more programs reside in memory at the same time.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

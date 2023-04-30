@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+        <title>MSP Tech contests</title>
+        <link rel="stylesheet" href="{% static 'msplogo.png' %}">
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+    *{
+        margin : 0px;
+        padding : 0px;
+        background : #010101;
+        color : #F3F3F3;
+    }
+    .main{
+        margin : 0px;
+        position : absolute;
+        display : flex;
+        flex-direction : column;
+    }
+    .pwc, .bb{
+        margin: 100px 0px 50px 0px;
+    }
+    .heading{
+        font-family: 'Tangerine', serif;
+        font-size : 43px;
+        color : #E7EB34;
+        font-weight : 700;
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        transform : scale(1.5);
+    }
+    .data{
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        flex-direction : column;
+    }
+    .item{
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        height : 100px;
+    }
+     .item span{
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        width : 15vw;
+        margin : 0px 10px;
+        font-size : 19px;
+    }
+    .item0 span{
+        font-size : 23px;
+        border-bottom : 2px dashed green;
+        text-shadow : 0 0 1px #F3F3F3,
+                      0 0 0px #F3F3F3,
+                      0 0 0px #F3F3F3;
+        font-weight : 700;
+    }
+    .name{
+        font-size : 13px;
+        margin : 0px 10px;
+    }
+    .startTime, .endTime{
+        font-size : 10px;
+        font-style : italic;
+        margin : 0px 10px;
+    }
+    .active{
+        font-size : 13px;
+        color : #AEA;
+        margin : 0px 10px;
+        font-family: 'Rubik Distressed', cursive;
+    }
+    .expired{
+        font-size : 13px;
+        color : #bf3b45;
+        margin : 0px 10px;
+        font-family: 'Rubik Distressed', cursive;
+    }
+    .link{
+        text-decoration : none;
+        font-size : 23px;
+        font-style : italic;
+        color : cyan;
+    }
+    .toggle{
+        position : absolute;
+        left : 15px;
+        z-index : 11;
+    }
+    input[type="checkbox"]{
+        appearance : none;
+    }
+    .wall{
+        position : absolute;
+        display : block;
+        width : 48px;
+        height : 23px;
+        border : 4px solid cyan;
+        border-radius : 30px;
+        transition : 2s;
+    }
+    .ball{
+        position : absolute;
+        top : 25px;
+        left : 2px;
+        width : 10px;
+        height : 10px;
+        border : 4px solid #F3F3F3;
+        background : #AEA;
+        border-radius : 50%;
+        margin-left : 5px;
+        transition : 0.6s;
+    }
+    label{
+        cursor : pointer;
+    }
+    label input:checked ~ .ball{
+        transform : translateX(24px);
+        background : #010101;
+        border-color : #010101;
+    }
+    label input:checked ~ .wall{
+        background : blue;
+        border-color : #AEA;
+    }
+    .translateY{
+        transform : translateY(100%);
+    }
+
+    @media screen and (min-width : 600px) and (max-width : 1000px){
+        .item span{
+            font-size : 17px;
+        }
+        .item0 span{
+            font-size : 20px;
+        }
+    }
+    @media screen and (max-width : 600px){
+        .item span{
+            font-size : 15px;
+        }
+        .item0 span{
+            font-size : 12px;
+        }
+    }
+</style>
+<body>
+    <div class="toggle">
+        <label>
+            <input type="checkbox">
+            <span class="wall"></span>
+            <span class="ball"></span>
+        </label>
+    </div>
+    <div class="main">
+        <div class="pwc">
+            <span class="heading">Play with coding</span>
+            <div class="data">
+                <div class="item item0">
+                    <span class="name-heading">Contest Name</span>
+                    <span class="startTime-heading">Start Time</span>
+                    <span class="endTime-heading">End Time</span>
+                    <span class="status-heading">Contest Status</span>
+                    <span class="link-heading">Contest Link</span>
+                </div>
+                {% for item in PWCdata %}
+                    <div class="item">
+                        <span class="name">{{item.name}}</span>
+                        <span class="startTime">{{item.startDateTime}}</span>
+                        <span class="endTime">{{item.EndDateTime}}</span>
+                        {% if active %}
+                            <span class="active">Active</span>
+                        {% else %}
+                            <span class="expired">Expired</span>
+                        {% endif %}
+                        <span>
+                            <a href="{{item.link}}" class="link">click</a>
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="bb">
+            <span class="heading">Brain Boost</span>
+            <div class="data">
+                <div class="item item0">
+                    <span class="name-heading">Contest Name</span>
+                    <span class="startTime-heading">Start Time</span>
+                    <span class="endTime-heading">End Time</span>
+                    <span class="status-heading">Status</span>
+                    <span class="link-heading">Link</span>
+                </div>
+                {% for item in BBdata %}
+                    <div class="item">
+                        <span class="name">{{item.name}}</span>
+                        <span class="startTime">{{item.startDateTime}}</span>
+                        <span class="endTime">{{item.EndDateTime}}</span>
+                        {% if active %}
+                            <span class="active">Active</span>
+                        {% else %}
+                            <span class="expired">Expired</span>
+                        {% endif %}
+                        <span>
+                            <a href="{{item.link}}" class="link">click</a>
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector('input').addEventListener('click', (e) => {
+        var main = document.querySelector('.main');
+        if(e.target.checked){
+            main.style.flexDirection = "column-reverse";
+        }
+        else{
+            main.style.flexDirection = "column";
+        }
+    })
+</script>
+</html>

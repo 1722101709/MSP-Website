@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSP Tech</title>
+  <link rel="website icon" href="{% static 'msplogo.png' %}">
+</head>
+<style>
+    *{
+        margin : 0px;
+        padding : 0px;
+    }
+    .main{
+        display : flex;
+        flex-direction : column;
+    }
+    .contest{
+        display : flex;
+        flex-direction : column;
+        margin-bottom : 50px;
+        margin-top : 20px;
+        border-bottom : 10px solid #010101;
+    }
+    .heading{
+        font-size : 45px;
+        font-weight : 700;
+        color : #F37812;
+        text-align : center;
+        text-decoration : 5px double overline underline yellow;
+        animation : shine 1s infinite;
+    }
+    @keyframes shine{
+        0%,20%,40%,60%,80%{
+		text-shadow: none;
+		}
+		20.1%,40.1%,60.1%,80.1%,100%{
+		text-shadow: 0 0 1px yellow,
+		             0 0 5px yellow,
+		             0 0 7px yellow,
+		             0 0 10px yellow;
+		}
+    }
+    .item{
+        display : flex;
+        flex-direction : column;
+        margin : 10px 0px 30px 0px;
+    }
+    .language{
+        font-size : 27px;
+        font-weight : 700;
+        font-style : italic;
+        color : #1122FE;
+        margin : 10px;
+        text-decoration : 2px double underline #AEA;
+    }
+    img{
+        margin : 10px 0px;
+    }
+    @media (max-width : 480px){
+        .heading{
+            font-size : 35px;
+        }
+    }
+</style>
+<body>
+    <div class="main">
+        {% for item in data %}
+            <div class="contest">
+                <span class="heading">{{item.heading}}</span>
+                {% for sol in item.solutions%}
+                    <div class="item">
+                        <span class="language">{{sol.language}}</span>
+                        <img src="{{sol.solution.url}}" alt="{{sol.language}} solution">
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

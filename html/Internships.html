@@ -1,0 +1,304 @@
+{% load static %}
+<html>
+<head>
+    <title>Job Notifications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="web icon" href="{% static 'msplogo.png' %}" type="png">
+</head>
+<style>
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+    *{
+        margin : 0px;
+        padding : 0px;
+        background : url("/static/img.jpg");
+        color : #fff;
+    }
+    body{
+        min-height : 100vh;
+        width : 100%;
+    }
+    .main{
+        width : 100%;
+    }
+    a{
+        text-decoration : none;
+    }
+    .data{
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        flex-direction : column;
+        margin-left : 30px;
+        position : relative;
+        top : 80px;
+    }
+    .item{
+        width : 600px;
+        height : cover;
+        border : 0.1px solid #111;
+        margin : 20px;
+        padding : 10px;
+        border-radius : 10px;
+        background : #001;
+        transition : ease-in 0.3s;
+    }
+    .item:hover{
+        border : 0.1px solid cyan;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, .1);
+        width : 650px;
+    }
+    .item:focus{
+        border-color : orange;
+    }
+    .package{
+        float : right;
+        margin-bottom : 5px;
+        color : #AEA;
+        font-size : 23px;
+        background : #001;
+    }
+    .topic{
+        float : left;
+        margin-bottom : 5px;
+        color : orange;
+        font-size : 23px;
+        background : #001;
+    }
+    .info{
+        margin-top : 37px;
+        text-indent : 43px;
+        box-oriented : vertical;
+        text-align : left;
+        font-size : 17px;
+        background : #001;
+        width : 600px;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+    }
+    .item div{
+        background : transparent;
+        font-size : 16px;
+        margin-top : 10px;
+    }
+    .item span{
+        background : transparent;
+    }
+    .deadLine{
+        float : left;
+    }
+    .deadLine span{
+        font-size : 23px;
+        color : #990000;
+    }
+    .item div .date{
+        float : right;
+        display : flex;
+        align-items: center;
+    }
+    .postedby{
+        font-size : 22px;
+    }
+    .datetime{
+        font-size : 21px;
+    }
+    .search{
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        float : right;
+        position : relative;
+        top : 10px;
+        margin : 30px;
+    }
+    .query{
+        outline : none;
+        border : none;
+        border-bottom : 1px solid #555;
+        text-align : center;
+        font-size : 17px;
+    }
+    .query:focus, .query:hover{
+        border-bottom : 0.1px solid orange;
+    }
+    input[type = "submit"]{
+        display : none;
+    }
+    label{
+        cursor : pointer;
+    }
+    label i{
+        font-size : 23px;
+    }
+    label i:hover{
+        color : orange;
+    }
+    .missing{
+        font-size : 37px;
+        color : #f66;
+    }
+    .missing-query{
+        color : #AEA;
+    }
+    .footer{
+        display : flex;
+        justify-content : center;
+        align-items : center;
+        width : 100%;
+        padding-bottom : 30px;
+        position : absolute;
+        bottom : 30px;
+    }
+    .telegram, .whatsapp, .facebook, .instagram, .youtube{
+        margin-right : 80px;
+        font-size : 30px;
+        text-decoration : none;
+    }
+    .linkedin{
+        font-size : 30px;
+        text-decoration : none;
+    }
+    .whatsapp i{
+        color : #0F0;
+    }
+    .telegram i{
+        color : #0088cc;
+    }
+    .facebook i{
+        color :  #3b5998;
+    }
+    .instagram i{
+        color : #dc2743;
+    }
+    .youtube i{
+        color : #FF0000;
+    }
+    .linkedin i{
+        color : #0A66C2;
+    }
+    .footer a:hover > span{
+        color : #AEA;
+    }
+
+    @media screen and (max-width : 480px){
+        .data{
+            position : absolute;
+            margin-left : 15px;
+        }
+        .item{
+            width : calc(100% - 50px);
+            margin-left : 10px;
+        }
+        .item:hover{
+            width : 380px;
+        }
+        .package{
+            font-size : 15px;
+        }
+        .topic{
+            font-size : 15px;
+        }
+        .info{
+            text-indent : 17px;
+            font-size : 12px;
+            width : 300px;
+            height : auto;
+        }
+        .item div{
+            font-size : 9px;
+        }
+        .deadLine span{
+            font-size : 13px;
+        }
+        .postedby{
+            font-size : 13px;
+        }
+        .datetime{
+            font-size : 15px;
+        }
+        .search{
+            margin : 0px;
+        }
+
+        .footer{
+            position : absolute;
+            bottom : 0px;
+            width : 100%;
+            padding-bottom : 13px;
+        }
+        .whatsapp{
+            margin-left : 10px;
+        }
+        .telegram, .whatsapp, .facebook, .instagram, .youtube{
+            margin-right : 10px;
+            font-size : 11px;
+            text-decoration : none;
+        }
+        .linkedin{
+            font-size : 11px;
+            text-decoration : none;
+        }
+    }
+</style>
+<body>
+      <div class="main">
+          <form action="internships" method="post" class="search">
+              {% csrf_token %}
+              <input type="text" placeholder="Search Here" class="query" name="query" value="{{query}}">
+              <label>
+                  <input type="submit">
+                  <i class="bi bi-search"></i>
+              </label>
+          </form>
+           <div class="data">
+              {% if flag %}
+                   {% for item in data %}
+                        <a href="internships/{{item.stringId}}" class="item">
+                            <span class="topic">{{item.company}}</span>
+                            <span class="package">{{item.package}}</span>
+                            <p class="info" >{{item.info}}</p>
+                            <div>
+                                <span class="deadline">DeadLine :-&nbsp;<span>{{item.deadLine}}</span></span>
+                                <span class="date">
+                                    &nbsp;posted by&nbsp;<span class="postedby">{{item.postedBy}},</span>
+                                    &nbsp;<span class="datetime">{{item.postTime}}</span>
+                                </span>
+                            </div>
+                        </a>
+                  {% endfor %}
+              {% else %}
+                    <span class="missing">No jobs found related to <span class="missing-query">{{query}}</span></span>
+              {% endif %}
+           </div>
+          <div class="footer">
+                   <a href="https://chat.whatsapp.com/CSaglJMsFbbLJADDI2IjXf" class="whatsapp">
+                       <i class="bi bi-whatsapp"></i>
+                       <span>whatsapp</span>
+                   </a>
+                   <a href="https://t.me/msptech3" class="telegram">
+                       <i class="bi bi-telegram"></i>
+                       <span>telegram</span>
+                   </a>
+                   <a href="https://www.facebook.com/profile.php?id=100088241905378" class="facebook">
+                       <i class="bi bi-facebook"></i>
+                       <span>Facebook</span>
+                   </a>
+                   <a href="https://instagram.com/msptech3?igshid=YmMyMTA2M2Y" class="instagram">
+                       <i class="bi bi-instagram"></i>
+                       <span>Instagram</span>
+                   </a>
+                    <a href="https://www.youtube.com/@msptech3" class="youtube">
+                        <i class="bi bi-youtube"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/msp-tech-137589258" class="linkedin">
+                        <i class="bi bi-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+               </div>
+      </div>
+</body>
+</html>

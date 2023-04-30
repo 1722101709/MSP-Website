@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>MSP Tech</title>
+    <link rel="website icon" href="{% static 'msplogo.png' %}">
+    <style>
+        *{
+            color : #fff;
+            background : #001;
+        }
+        .main{
+            display : flex;
+            flex-direction : column;
+        }
+        .heading{
+            font-size : 29px;
+            font-weight : 700;
+        }
+        .data{
+            display : flex;
+            flex-direction : column;
+            margin : 30px 0px;
+        }
+        .data .item{
+            display : flex;
+        }
+        .heading1{
+            margin : 0px 20px 10px 0px;
+            width : 100px;
+        }
+        .info{
+            margin-left : 40px;
+        }
+        .main a{
+            text-decoration : none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <span class="heading">Eligibility criteria for {{company}}</span>
+        <div class="data">
+            {% for item in data%}
+                <div class="item">
+                    <span class="heading1">{{item.heading}}</span> :- <span class="info">{{item.info}}</span>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{link}}">Click here to apply</a>
+    </div>
+</body>
+</html>

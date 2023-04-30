@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSP Tech</title>
+    <link rel="icon" href="{% static 'msplogo.png'%}">
+    <link rel="stylesheet" href="{% static 'interview.css' %}">
+    <script src="{% static 'interview.js' %}"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="item">
+            <div class="question">
+                <span>What is Data Structure? Explain.</span>
+            </div>
+            <div class="answer">
+                <span>The data structure is a way that specifies how to organize and manipulate the
+                data</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Describe the types of Data Structures?</span>
+            </div>
+            <div class="answer">
+                <span><strong>Linear Data Structure :</strong> A data structure is called linear if all of its elements
+                are arranged in the sequential order.</span>
+                <span><strong>Non-Linear Data Structure :</strong> The Non-linear data structure does not form a
+                sequence i.e. each item or element is connected with two or more other items in
+                a non-linear arrangement.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What is a Stack?</span>
+            </div>
+            <div class="answer">
+                <span>Stack is an ordered list in which, insertion and deletion can be performed only
+                at one end that is called the top.The stack is sometimes called as Last-In-First-Out (LIFO).</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>List the area of applications where stack data structure can be used?</span>
+            </div>
+            <div class="answer">
+                <ul>
+                    <li>Expression evaluation</li>
+                    <li>Backtracking</li>
+                    <li>MemoryManagement</li>
+                    <li>Function calling and return</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What is an array?</span>
+            </div>
+            <div class="answer">
+                <span>It is a group of similar types of elements.It is stored in continuos memory
+                location.</span>
+                <ul>
+                    <li><strong>one-dimension array :</strong> A one-dimensional array is a structured collection of
+                    components.</li>
+                    <li><strong>multidimensional array :</strong> The multidimensional array can be defined as the
+                    array of arrays in which, the data is stored in tabular form consists of rows and
+                    columns.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Define linked list?</span>
+            </div>
+            <div class="answer">
+                <span>A linked list may be defined as a linear data structure which can store a
+                collection of items.</span>
+                <ul>
+                    <li><strong>Singly Linked List :</strong>The singly linked list includes nodes which contain a data
+                    field and next field. The next field further points to the next node in the line of
+                    nodes.</li>
+                    <li><strong>Doubly Linked List :</strong>Doubly linked list is a linked data structure that consists
+                    of a set of sequentially linked records called nodes.</li>
+                    <li><strong>Circular Linked List :</strong>Circular linked list is a linked list where all nodes are
+                    connected to form a circle.</li>
+                    <li><strong>Advantages of a linked list :</strong>The main advantage of a linked list is that we do
+                    not need to specify a fixed size for the list. The more elements we add to the
+                    chain, the bigger the chain gets</li>
+                    <li><strong>Drawbacks of the linked list :</strong>Random access is not allowed. We need to
+                    access elements sequentially starting from the first node. So we cannot perform
+                    a binary search with linked lists.More memory space for a pointer is required with each element of the list.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Are linked lists considered linear or non-linear data structures?</span>
+            </div>
+            <div class="answer">
+                <span>linked list is considered both linear and non-linear data structure depending
+                upon the situation.</span>
+                <span>On the basis of data storage, it is considered as a non-linear data structure.</span>
+                <span>On the basis of the access strategy, it is considered as a linear data-structure.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Which type of memory allocation is referred for Linked List?</span>
+            </div>
+            <div class="answer">
+                <span>Dynamic memory allocation is referred for Linked List.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What is tree in data structure?</span>
+            </div>
+            <div class="answer">
+                <span>A tree is a hierarchical data structure defined as a collection of nodes.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Differentiate among cycle, path, and circuit?</span>
+            </div>
+            <div class="answer">
+                <span><strong>Path :</strong> A Path is the sequence of adjacent vertices connected by the edges with
+                no restrictions.</span>
+                <span><strong>Cycle :</strong> A Cycle can be defined as the closed path where the initial vertex is
+                identical to the end vertex. Any vertex in the path can not be visited twice.</span>
+                <span><strong>Circuit :</strong> A Circuit can be defined as the closed path where the intial vertex is
+                identical to the end vertex. Any vertex may be repeated.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Difference between BFS and DFS?</span>
+            </div>
+            <div class="answer">
+                <table border="1">
+                    <tr>
+                        <th>BFS</th>
+                        <th>DFS</th>
+                    </tr>
+                    <tr>
+                        <td>A graph traversal algorithm that starts traversing the graph from the root
+                        node and explores all the neighboring nodes</td>
+                        <td>An algorithm that starts with the initial node of the graph
+                        and then goes deeper and deeper until finding the required node or the node which has no children</td>
+                    </tr>
+                    <tr>
+                        <td>Stands for Breadth First Search</td>
+                        <td>Stands for Depth First Search</td>
+                    </tr>
+                    <tr>
+                        <td>Uses queue</td>
+                        <td>Uses stack</td>
+                    </tr>
+                    <tr>
+                        <td>Consumes more memory</td>
+                        <td>Consumes less memory</td>
+                    </tr>
+                    <tr>
+                        <td>Focuses on visiting the oldest unvisited vertices first</td>
+                        <td>Focuses on visiting the vertices along the edge in the beginning</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What are Binary trees?</span>
+            </div>
+            <div class="answer">
+                <span>A binary Tree is a special type of generic tree in which, each node can have at
+                most two children.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What is an AVL tree?</span>
+            </div>
+            <div class="answer">
+                <span>AVL means Adelson velsky and landis. AVL tree is a self-balancing Binary
+                Search Tree (BST) where the difference between heights of left and right
+                subtrees cannot be more than one for all nodes.
+                </span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Define the queue data structure?</span>
+            </div>
+            <div class="answer">
+                <span>A queue can be defined as an ordered list in which insertion operation can be
+                performed at front end and deletion operation can be performed at rear end.
+                </span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Explain different sorting algorithms with time complexity?</span>
+            </div>
+            <div class="answer">
+                <ul style="font-size : 17px;">
+                    <li><strong>Merge sort :</strong> This algorithm works on splitting an array into two halves. Each
+                    half is sorted and merge back together by using merge function.
+                    <br><br>Time Complexity : O(nlogn)</li>
+                    <li><strong>Selection sort :</strong> In this at first smallest element is send to the first position.The
+                    next smallest element is searched in the remaining array and is placed in
+                    second position.This goes until last element is placed in right position.
+                    <br><br>Time Complexity :  O(n^2)</li>
+                    <li><strong>Bubble sort :</strong> Simplest of all algorithms. It works on the principle of repeatedly
+                    swapping adjacent elements in case they are not in the right order.
+                    <br><br>Time Complexity : O(n^2)</li>
+                    <li><strong>Quick sort :</strong>It is highly efficient sorting algorithm. It is based on divide and
+                    conquer approach.An array is divided into subarrays by selecting a pivot
+                    element.It partitions an array and then calls itself recursively to sort the two
+                    resulting subarrays.<br><br>Pivot : An element of an array,which is selected first by algorithm.<br><br>Time Complexity : O(nlogn)</li>
+                    <li><strong>Heap sort :</strong> It process the elements by creating the min heap or max heap using
+                    the elements of given array.<br><br>Time Complexity : O(nlogn)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Explain linear and binary search algorithms?</span>
+            </div>
+            <div class="answer">
+                <ul style="font-size : 17px;">
+                    <li><strong>Linear search :</strong> It finds the element in the list by searching the element
+                    sequentially until the element is found.<br><br>Time Complexity : O(n)</li>
+                    <li><strong>Binary Search :</strong>It is a search that finds the middle element in the list
+                    recursively until the middle element is attached with searched element.It is only
+                    for already sorted list.<br><br>Time Complexity : O(logn)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>What is graph?</span>
+            </div>
+            <div class="answer">
+                <span>A set of items connected by edges. Each item is called a vertex or node.
+                Formally, a graph is a set of vertices and a binary relation between vertices,
+                adjacency.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

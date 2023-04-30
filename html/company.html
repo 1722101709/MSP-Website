@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>msp home page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'msplogo.png'%}">
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+        *{
+            margin : 0px;
+            padding : 0px;
+            color : #fff;
+            background : #101010;
+        }
+        body{
+            width : 100%;
+            overflow : scroll;
+        }
+        .container{
+            width : 100%;
+        }
+        .menu{
+            display : flex;
+            justify-content : space-around;
+            align-items : center;
+            margin : 10px;
+            border-top : 1px solid #fff;
+            border-bottom : 1px solid #fff;
+            padding : 10px 0px;
+            transition : ease-out 2s;
+        }
+        .data{
+
+        }
+        .item{
+            text-decoration : none;
+            background : transparent;
+            width : 200px;
+            height : 40px;
+            display : flex;
+            justify-content : center;
+            align-items : center;
+            font-size : 20px;
+            border : 1px solid #101010;
+            transition : ease-in-out 0.1s;
+        }
+        span, i{
+            background : inherit;
+        }
+        .item i {
+            margin-right : 4px;
+        }
+        .item:hover{
+            background : #222;
+            backdrop-filter: blur(20px);
+            border-radius: 10px;
+            box-shadow: 10px 20px rgba(0, 0, 0, .1);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            font-size : 23px;
+        }
+        .item1:hover > i{
+            color : #AEA;
+        }
+        .item2:hover > i{
+            color : #FFA500;
+        }
+        .item3:hover > i{
+            color : #916A7F;
+        }
+        .item4:hover > i{
+            color : #48ECBE;
+        }
+        .item5:hover > i{
+            color : #A58718;
+        }
+        .item6:hover > i{
+            color : #4B8094;
+        }
+        .item7:hover > i{
+            color : #CEE50D;
+        }
+        img{
+            width : 500px;
+            height : 300px;
+        }
+        .img{
+            width : 500px;
+            height : 300px;
+        }
+        .description{
+            width : 100%;
+        }
+        .note{
+            display : flex;
+            flex-direction : column;
+            margin : 20px 0px;
+        }
+        .heading{
+            font-size : 25px;
+            font-weight : 800;
+            margin-bottom : 10px;
+        }
+        .info{
+            font-size : 17px;
+        }
+        .eligibility{
+            display : flex;
+            justify-content : center;
+            margin-bottom : 20px;
+        }
+        .eligibility span{
+            font-size : 20px;
+        }
+        .eligibility a{
+            text-decoration : none;
+            font-size : 23px;
+            font-style : italic;
+            color : #AEA;
+        }
+        .not-found{
+            font-size : 30px;
+            color : #FE0046;
+            display : flex;
+            justify-content : center;
+            margin : 30px 0 30px 0;
+            position : relative;
+            left : 20%;
+        }
+        .not-found span{
+            color : #49F149;
+        }
+        .footer{
+            display : flex;
+            justify-content : center;
+            align-items : center;
+            width : 100%;
+            padding-bottom : 30px;
+        }
+        .telegram, .whatsapp, .facebook, .instagram, .youtube{
+            margin-right : 80px;
+            font-size : 30px;
+            text-decoration : none;
+        }
+        .linkedin{
+            font-size : 30px;
+            text-decoration : none;
+        }
+        .whatsapp i{
+            color : #0F0;
+        }
+        .telegram i{
+            color : #0088cc;
+        }
+        .facebook i{
+            color :  #3b5998;
+        }
+        .instagram i{
+        color : #dc2743;
+        }
+        .youtube i{
+            color : #FF0000;
+        }
+        .linkedin i{
+            color : #0A66C2;
+        }
+        .footer a:hover > span{
+            color : #AEA;
+        }
+        .link{
+            display : flex;
+            justify-content : center;
+            margin-bottom : 70px;
+        }
+        .link a{
+            text-decoration : none;
+            animation : scale ease-in-out 3s infinite;
+            padding : 4px;
+            position : absolute;
+            left : 50%;
+        }
+        @keyframes scale{
+            0%{
+                font-size : 25px;
+                color : violet;
+            }
+            14%{
+                font-size : 27px;
+                color : indigo;
+            }
+            28%{
+                font-size : 25px;
+                color : blue;
+            }
+            42%{
+                font-size : 27px;
+                color : green;
+            }
+            56%{
+                font-size : 25px;
+                color : yellow;
+            }
+            70%{
+                font-size : 27px;
+                color : orange;
+            }
+            84%{
+                font-size : 25px;
+                color : red;
+            }
+            98%, 100%{
+                font-size : 27px;
+                color : white;
+            }
+        }
+        .link a:hover{
+            border-color : orange;
+        }
+        .menu-small{
+            display : none;
+        }
+        .bar{
+            display : block;
+            position : relative;
+            transform : rotate(180deg);
+            margin : 5px;
+            width : 28px;
+            height : 3px;
+            background : #F2F2F2;
+            z-index : 11;
+            transition : ease-in-out 1s;
+        }
+        .open0{
+            display :none;
+        }
+        .open1{
+            background : #010101;
+            position : relative;
+            top : 10px;
+            transform : rotate(45deg);
+            z-index : 13;
+        }
+        .open2{
+            background : #010101;
+            position : relative;
+            top : 2px;
+            transform : rotate(135deg);
+        }
+        @media screen and (max-width: 480px){
+            .menu{
+                border : none;
+                flex-direction : column;
+                justify-content : center;
+                background : #AEA;
+                z-index : 11;
+                height : 100vh;
+                display : none;
+                box-shadow : 0 0 5px #AEA;
+            }
+            .item{
+                text-decoration : none;
+                background : transparent;
+                display : flex;
+                justify-content : center;
+                align-items : center;
+                font-size : 19px;
+                font-weight : 700;
+                height : auto;
+                border : none;
+                margin : 17px 0px;
+            }
+            .item i, .item span{
+                color : #010101;
+            }
+            .item:hover{
+                font-size : 23px;
+                background : none;
+                border : none;
+                box-shadow : none;
+            }
+            .item:hover span{
+                color : #911F1F;
+            }
+            .menu-small{
+                position : absolute;
+                right : 20px;
+                top : 10px;
+                display : block;
+                background : transparent;
+            }
+            img{
+                width : 300px;
+                height : 200px;
+            }
+            .img{
+                width : 300px;
+                height : 200px;
+            }
+            .note{
+                display : flex;
+                flex-direction : column;
+                margin : 20px;
+            }
+            .heading{
+                font-size : 17px;
+                font-weight : 700;
+                margin-bottom : 10px;
+            }
+            .info{
+                font-size : 14px;
+                font-weight : 300;
+            }
+            .eligibility span{
+                font-size : 14px;
+            }
+            .eligibility a{
+                text-decoration : none;
+                font-size : 19px;
+                font-style : italic;
+                color : #AEA;
+            }
+            .footer{
+                width : 100%;
+                padding-bottom : 20px;
+            }
+            .whatsapp{
+                margin-left : 10px;
+            }
+            .telegram, .whatsapp, .facebook, .instagram, .youtube{
+                margin-right : 10px;
+                font-size : 11px;
+                text-decoration : none;
+            }
+            .linkedin{
+                font-size : 11px;
+                text-decoration : none;
+            }
+            .link{
+                display : flex;
+                justify-content : center;
+            }
+            .link a{
+                text-decoration : none;
+                font-size : 17px;
+                position : absolute;
+                left : 41%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu-small">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="menu">
+            <a href="/" class="item item1">
+                <i class="icon1 bi bi-house-up-fill"></i>
+                <span>Home</span>
+            </a>
+            <a href="/job_notifications" class="item item2">
+                <i class="icon2 bi bi-megaphone"></i>
+                <span>Job Notifications</span>
+            </a>
+            <a href="/internships" class="item item3">
+                <i class="icon3 bi bi-mortarboard"></i>
+                <span>Internships</span>
+            </a>
+            <a href="/interviewTopics" class="item item4">
+                <i class="icon4 bi bi-book"></i>
+                <span>Resources</span>
+            </a>
+            <a href="/contests" class="item item5">
+                <i class="icon1 bi bi-award"></i>
+                <span>Contests</span>
+            </a>
+            <a href="/solutions" class="item item6">
+                <i class="icon5 bi bi-pen-fill"></i>
+                <span>Solutions</span>
+            </a>
+            <a href="/about_us" class="item item7">
+                <i class="bi bi-info-circle-fill"></i>
+                <span>About us</span>
+            </a>
+        </div>
+        <div class="img">
+            <img src="{{image.url}}" alt="Leonardo Di Caprio">
+        </div>
+        <div class="description">
+            {% for item in data %}
+                <div class="note">
+                    <span class="heading">{{item.heading}}</span>
+                    <span class="info">{{item.info}}</span>
+                </div>
+                {% if item.no == 1 %}
+                    <div class="eligibility">
+                        <span>
+                            Check {{company}} drive eligibility : - <a href="/eligibility/{{item.stringId}}">click here</a>
+                        </span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if flag %}
+                <div class="link">
+                    <a href="{{link}}">Click Here</a>
+                </div>
+            {% else %}
+                <span class="not-found">No jobs found related to&nbsp;<span>{{company}}</span></span>
+            {% endif %}
+        </div>
+        <footer class="footer">
+           <a href="https://chat.whatsapp.com/CSaglJMsFbbLJADDI2IjXf" class="whatsapp">
+               <i class="bi bi-whatsapp"></i>
+               <span>whatsapp</span>
+           </a>
+           <a href="https://t.me/msptech3" class="telegram">
+               <i class="bi bi-telegram"></i>
+               <span>telegram</span>
+           </a>
+           <a href="https://www.facebook.com/profile.php?id=100088241905378" class="facebook">
+               <i class="bi bi-facebook"></i>
+               <span>Facebook</span>
+           </a>
+           <a href="https://instagram.com/msptech3?igshid=YmMyMTA2M2Y" class="instagram">
+               <i class="bi bi-instagram"></i>
+               <span>Instagram</span>
+           </a>
+            <a href="https://www.youtube.com/@msptech3" class="youtube">
+                <i class="bi bi-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.linkedin.com/in/msp-tech-137589258" class="linkedin">
+                <i class="bi bi-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            
+        </footer>
+    </div>
+</body>
+<script>
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
+    document.querySelector('.menu-small').addEventListener('click', async () => {
+        var flag = 1;
+        if(document.querySelector('.menu').style.display == "flex"){
+            flag = 0;
+        }
+        if(flag === 1){
+            for(let i = 0; i < 3; i++){
+                var ele = document.getElementsByClassName('bar')[i];
+                ele.classList.add('open'+i);
+            }
+            await delay(300);
+            document.querySelector('.menu').style.display = 'flex';
+            document.body.style.overflow = "hidden";
+        }
+        else{
+            for(let i = 0; i < 3; i++){
+                var ele = document.getElementsByClassName('bar')[i];
+                ele.classList.remove('open'+i);
+            }
+            await delay(100);
+            document.querySelector('.menu').style.display = "none";
+            document.body.style.overflow = "scroll";
+        }
+    })
+
+    window.onresize = () => {
+        let width = screen.availWidth;
+        if(width > 480){
+            document.body.style.overflow = "scroll";
+            document.querySelector('.menu').style.height = "auto";
+        }
+        if(width <= 480 && document.querySelector('.menu').style.display == "flex"){
+            document.body.style.overflow = "hidden";
+            document.querySelector('.menu').style.height = "100vh";
+
+        }
+    }
+</script>
+</html>

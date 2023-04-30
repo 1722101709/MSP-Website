@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MSP Tech</title>
+    <link rel="icon" href="{% static 'msplogo.png'%}">
+    <link rel="stylesheet" href="{% static 'interview.css' %}">
+    <script src="{% static 'interview.js' %}"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="item">
+            <div class="question">
+                <span>What is java?</span>
+            </div>
+            <div class="answer">
+                <span>Java is a computer programming language that is concurrent, class-based and object-oriented.</span>
+                <span><strong>Features</strong> : Simple,Object oriented,Secure,Robust,Potable</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span>Why java is platform independent?</span>
+            </div>
+            <div class="answer">
+                <span>The java code is compiled by the compiler and converted into bytecode.This
+                bytecode is platform independent code because it can be executed on several platforms.</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="question">
+                <span> What is JVM?</span>
+            </div>
+            <div class="answer">
+                <span>A Java virtual machine (JVM) is a process virtual machine that can execute
+                Java bytecode. Each Java source file is compiled into a bytecode file, which is
+                executed by the JVM.</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
